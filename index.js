@@ -69,8 +69,8 @@ _isCanvasBlank = canvas => {
 };
 
 downloadPdf = (dom, options, cb) => {
-  const a4Height = 841.89;
-  const a4Width = 595.28;
+  let a4Height = 841.89;
+  let a4Width = 595.28;
   let overrideWidth;
   let container;
   let containerCSS;
@@ -93,14 +93,19 @@ downloadPdf = (dom, options, cb) => {
   let scaleObj;
   let style;
   const transformOrigin = 'top left';
-  const pdfOptions = {
+  let pdfOptions = {
     orientation: 'p',
     unit: 'pt',
     format: 'a4'
   };
 
-  ({filename, excludeClassNames = [], excludeTagNames = ['button', 'input', 'select'], overrideWidth, proxyUrl, compression, scale} = options);
+  ({filename, excludeClassNames = [], excludeTagNames = ['button', 'input', 'select'], overrideWidth, proxyUrl, compression, scale,pdfOptions} = options);
 
+  if (options.pdfOptions.orientation === 'l') {
+    a4Height = 595.28;
+    a4Width = 841.89;
+  }
+  
   overlayCSS = {
     position: 'fixed',
     zIndex: 1000,
