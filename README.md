@@ -29,6 +29,7 @@ domToPdf(element, options, function(pdf) {
 * `proxyUrl` - string, e.g. `/api/proxyImage?url=`, a route in your app which renders images on your domain in order to avoid problems with CORS with the images on a DOM
 * `compression` - string, compression of the generated image, can have the values 'NONE', 'FAST', 'MEDIUM' and 'SLOW'. (default is 'NONE')
 * `scale` - number, increases an image's size before exporting to improve the image quality
+* `pdfOptions` - Changing pdf settings orientation, unit , format (default orientation - 'p', unit - 'pt', format - 'a4')
 
 
 ## Support
